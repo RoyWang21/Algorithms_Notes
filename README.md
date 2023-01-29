@@ -25,3 +25,43 @@
 			return newlist
 		return merge(merge_sort(list1), merge_sort(list2))
 ```
+
+### Linked Lists:
+- Traverse template 
+```
+	newhead = cur = ListNode(-1) 
+	cur.next = head
+	For :
+		cur = cur.next
+		…
+	return newhead.next
+```
+- Split template
+```
+        head2 = break_node.next # rewire
+        break_node.next = None # disconnect
+```
+- Reverse template
+```
+        prev = None
+        current = head
+        while current :
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+        head = prev
+```
+
+### Breadth First Search(BFS):
+- Basic template
+```
+        queue = [root]
+        while queue:
+		nq = len(queue) # this is important as queue sizes changes on the fly
+		for i in range(nq): # each loop takes care of each level of nodes
+			cur_node = queue.pop(0)
+			# do sth with cur_node…
+			queue.append(cur_node.left) # if exists
+			queue.append(cur_node.right) # if exists
+```
