@@ -74,27 +74,32 @@ Returning results via DFS:
 
 ```
 def dfs(node):
+	# search reaches the end
 	if end_condition_met:
 		return 0
 	# iterate over each neighbor of current node
 	for i in g[node]:
-		output = some_func( dfs(i) )
+		output.append(some_func( dfs(i) ))
 	return aggregate(output)
 
  return dfs(root)
 ```
 Cumulating results via DFS
 ```
-def dfs(sub, path):
+def dfs(graph, path):
 	nonlocal output
+	# search reaches the end
 	if end_condition_met:
+		# a valid path has been found
 		output.append(path)
                 return
 	for i in g[node]:
-		updated_path = some_func()
-                dfs(post, updated_path)
+		updated_path = some_func(graph)
+		graph_rest = some_func_2(graph)
+		# search the rest of the graph
+                dfs(graph_rest, updated_path)
 
 output = []
-dfs(s, path=[])
+dfs(graph, path=[])
 return output
 ```
