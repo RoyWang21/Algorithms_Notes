@@ -65,3 +65,36 @@
 			queue.append(cur_node.left) # if exists
 			queue.append(cur_node.right) # if exists
 ```
+
+### Depth Frist Search(DFS):
+
+build graph first - adj list: g[node_i] = [node_j, node_k…]
+
+Returning results via DFS:
+
+```
+def dfs(node):
+	if end_condition_met:
+		return 0
+	# iterate over each neighbor of current node
+	for i in g[node]:
+		output = some_func( dfs(i) )
+	return aggregate(output)
+
+ return dfs(root)
+```
+Cumulating results via DFS
+```
+def dfs(sub, path):
+	nonlocal output
+	if end_condition_met:
+		output.append(path)
+                return
+	for i in g[node]:
+		updated_path = some_func()
+                dfs(post, updated_path)
+
+output = []
+dfs(s, path=[])
+return output
+```
