@@ -84,7 +84,7 @@ def dfs(node):
 
  return dfs(root)
 ```
-Cumulating results via DFS
+Cumulating results via DFS:
 ```
 def dfs(graph, path):
 	nonlocal output
@@ -103,3 +103,23 @@ output = []
 dfs(graph, path=[])
 return output
 ```
+Backtracking template:
+```
+def backtrack(candidate):
+    if find_solution(candidate):
+        output(candidate)
+        return
+    
+    # iterate all possible candidates.
+    for next_candidate in list_of_candidates:
+        if is_valid(next_candidate):
+            # try this partial candidate solution
+            place(next_candidate)
+            # given the candidate, explore further.
+            backtrack(next_candidate)
+            # backtrack
+            remove(next_candidate)
+```
+- Extend list non-inplace: lis + [I]
+- Extend set non-inplace: vis | set([I])
+- instead of path.append -> dfs() -> path.pop; do dfs(path+[I]) to save memory
