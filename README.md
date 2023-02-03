@@ -25,7 +25,20 @@
 			return newlist
 		return merge(merge_sort(list1), merge_sort(list2))
 ```
-
+### Binary Search:
+- Binary search template
+```
+# use case: If we can discover some kind of monotonicity, for example, if condition(k) is True then condition(k + 1) is True, then we can consider binary search.
+# Obj: Minimize k , s.t. condition(k) is True
+    left, right = min(search_space), max(search_space) #  rule1: include all possible elements
+    while left < right:
+        mid = left + (right - left) // 2
+        if condition(mid): # need careful design
+            right = mid
+        else:
+            left = mid + 1
+    return left # or return left - 1. # rule2: after exiting the while loop, left is the minimal k satisfying the condition
+```
 ### Linked Lists:
 - Traverse template 
 ```
